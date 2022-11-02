@@ -1,0 +1,24 @@
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-alpine.css";
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  height: 2rem;
+  padding: 0 !important;
+  margin-bottom: 1rem;
+
+  &__search {
+    height: 2rem;
+    width: 100%;
+    margin: 0 !important;
+  }
+}
+
+::ng-deep .mat-card {
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}

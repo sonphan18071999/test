@@ -1,0 +1,32 @@
+<!-- Button to clear selection -->
+<mat-card class="toolbar">
+  <input
+    class="toolbar__search"
+    type="search"
+    placeholder="Search something in this table"
+    (keyup)="onSearch($event)"
+  />
+  <button (click)="clearSelection()">
+    <b>Clear</b>
+  </button>
+</mat-card>
+<!-- AG Grid Angular Component -->
+<ag-grid-angular
+  style="width: 100%; height: 15rem"
+  class="ag-theme-alpine"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [rowData]="rowData$ | async"
+  [rowSelection]="'multiple'"
+  [animateRows]="true"
+  (gridReady)="onGridReady($event)"
+  (cellClicked)="onCellClicked($event)"
+></ag-grid-angular>
+
+<!-- 
+    - Event on cells.
+    - Configure for cells action ( editable then save, delete, add ).
+    - Group column or cell.
+    - Pagination.
+    - Type of edit ( inline, popup )
+-->

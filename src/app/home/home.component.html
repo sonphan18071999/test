@@ -1,0 +1,49 @@
+<mat-card class="list__item">
+  <mat-card-title>List Test Item</mat-card-title>
+  <mat-card-subtitle>Some title</mat-card-subtitle>
+  <mat-card-content>
+    <p>This card indeterminate progress bar.</p>
+
+    <mat-grid-list cols="3" rowHeight="4:1">
+      <mat-grid-tile>
+        <button mat-stroked-button (click)="navigate('/home/route/', '1')">
+          Authorization ( Route guard )
+        </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-stroked-button>Unit test</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-stroked-button>Reactive Form/ Template form</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-stroked-button (click)="navigate('/home/ngrx')">
+          Rxjs/Ngrx - Getter setter
+        </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-stroked-button>Configure CI/CD</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-stroked-button (click)="navigate('/home/on-push')">
+          On Push Scenario
+        </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-stroked-button>SSR</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-stroked-button>Ping Identity with SSO</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-stroked-button (click)="navigate('/home/ag-grid')">
+          Ag-grid
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="test__container">
+  <router-outlet></router-outlet>
+</mat-card>

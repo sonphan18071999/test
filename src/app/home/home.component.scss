@@ -1,0 +1,18 @@
+.list__item {
+  width: 55rem;
+  margin: auto;
+}
+
+ul li {
+  list-style: none;
+}
+
+::ng-deep .mat-grid-tile-content {
+  justify-content: flex-start !important;
+}
+
+.test__container {
+  width: 55rem;
+  margin: auto;
+  margin-top: 1rem;
+}
