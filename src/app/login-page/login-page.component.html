@@ -1,0 +1,42 @@
+<mat-card class="login__form">
+  <mat-card-title> Login page before SSO </mat-card-title>
+  <br />
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>User Name</mat-label>
+      <input
+        type="email"
+        matInput
+        autocomplete="false"
+        [formControl]="userNameFormControl"
+        [errorStateMatcher]="matcher"
+      />
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        autocomplete="false"
+        [formControl]="passwordFormControl"
+        [errorStateMatcher]="matcher"
+      />
+    </mat-form-field>
+    <br />
+    <div>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="btn__action"
+        (click)="submitUser()"
+      >
+        Login
+      </button>
+      <button mat-raised-button color="accent" class="btn__action">
+        Cancel
+      </button>
+    </div>
+  </form>
+</mat-card>

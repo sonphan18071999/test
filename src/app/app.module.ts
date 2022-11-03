@@ -12,6 +12,9 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './state/reducers/counter.reducer';
 import { agGridReducer } from './state/reducers/ag-grid.reducer';
 import { HomeModule } from './home/home.module';
+import { AuthServiceService } from './services/auth-service.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorServiceService } from './services/auth-interceptor-service.service';
 
 @NgModule({
   imports: [
@@ -29,7 +32,14 @@ import { HomeModule } from './home/home.module';
   ],
   exports: [],
   declarations: [AppComponent, RouteComponentComponent],
-  providers: [],
+  providers: [
+    AuthServiceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorServiceService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

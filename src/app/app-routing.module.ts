@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AgGridComponent } from './home/ag-grid/ag-grid.component';
 import { HomeComponent } from './home/home.component';
 import { NgrxTestComponent } from './home/ngrx-test/ngrx-test.component';
+import { SSOComponent } from './home/sso/sso.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 import { RouteComponentComponent } from './route-component/route-component.component';
 import { HaveValidRouteGuard } from './routeGuard.guard';
 
@@ -27,6 +29,14 @@ const routes: Routes = [
       {
         path: 'ngrx',
         component: NgrxTestComponent,
+      },
+      {
+        path: 'sso',
+        component: SSOComponent,
+      },
+      {
+        path: 'login',
+        component: LoginPageComponent,
       },
     ],
   },

@@ -7,6 +7,9 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgrxTestModule } from './ngrx-test/ngrx-test.module';
 import { AgGridDemoModule } from './ag-grid/ag-grid-demo.module';
+import { AgGridButtonCustomizeComponent } from './ultilities/ag-grid-button-customize/ag-grid-button-customize.component';
+import { SSOModule } from './sso/sso.module';
+import { LoginPageModule } from '../login-page/login-page.module';
 
 @NgModule({
   imports: [
@@ -17,8 +20,10 @@ import { AgGridDemoModule } from './ag-grid/ag-grid-demo.module';
     HttpClientModule,
     NgrxTestModule,
     AgGridDemoModule,
+    SSOModule,
+    LoginPageModule,
   ],
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, AgGridButtonCustomizeComponent],
   exports: [HomeComponent, MatCardModule, MatButtonModule],
 })
 export class HomeModule {}

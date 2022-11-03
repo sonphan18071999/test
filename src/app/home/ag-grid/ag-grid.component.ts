@@ -7,6 +7,8 @@ import { debounceTime, Subject, take } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { Car } from 'src/app/models/car.model';
 import { saveFetchingData } from 'src/app/state/actions/ag-grid.actions';
+import { carMock } from '../mocks/car-mock';
+import { AgGridButtonCustomizeComponent } from '../ultilities/ag-grid-button-customize/ag-grid-button-customize.component';
 import { GridSearchDataService } from './services/grid-search/grid-search-data.service';
 
 @Component({
@@ -18,10 +20,24 @@ import { GridSearchDataService } from './services/grid-search/grid-search-data.s
 export class AgGridComponent implements OnInit {
   // Each Column Definition results in one Column.
   public columnDefs: ColDef[] = [
-    { field: 'make', editable: true },
+    {
+      field: 'make',
+      editable: true,
+      checkboxSelection: true,
+      headerCheckboxSelection: true,
+      showDisabledCheckboxes: true,
+    },
     { field: 'model' },
     { field: 'price', editable: true },
-    { field: 'actions', showDisabledCheckboxes: true },
+    {
+      field: 'actions',
+      cellRenderer: AgGridButtonCustomizeComponent,
+      cellRendererParams: {
+        clicked: (field: any) => {
+          alert(`${field} was clicked`);
+        },
+      },
+    },
   ];
 
   // DefaultColDef sets props common to all Columns
@@ -35,6 +51,7 @@ export class AgGridComponent implements OnInit {
 
   protected unsubscribe$ = new Subject<void>();
 
+  mockCars = [] as Car[];
   // For accessing the Grid's API
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
@@ -63,7 +80,10 @@ export class AgGridComponent implements OnInit {
     this.rowData$.subscribe((data) => {
       this.store.dispatch(saveFetchingData({ fetchingData: data }));
     });
-    console.log(this.rowData$);
+
+    // this.rowData$ = carMock;
+    // console.log(this.rowData$);
+    this.mockCars = carMock;
   }
 
   // Example of consuming Grid Event

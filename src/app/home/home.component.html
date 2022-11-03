@@ -33,7 +33,9 @@
         <button mat-stroked-button>SSR</button>
       </mat-grid-tile>
       <mat-grid-tile>
-        <button mat-stroked-button>Ping Identity with SSO</button>
+        <button mat-stroked-button (click)="navigate('/home/sso')">
+          Ping Identity with SSO
+        </button>
       </mat-grid-tile>
       <mat-grid-tile>
         <button mat-stroked-button (click)="navigate('/home/ag-grid')">
